@@ -3,6 +3,8 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 const instagramApiKey = publicRuntimeConfig.INSTAGRAM_API_KEY;
+console.log('Instagram API Key:', instagramApiKey);
+
 
 interface MediaItem {
   id: string;
