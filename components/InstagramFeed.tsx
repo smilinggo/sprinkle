@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const instagramApiKey = publicRuntimeConfig.INSTAGRAM_API_KEY;
 
 interface MediaItem {
   id: string;
@@ -8,14 +12,14 @@ interface MediaItem {
   permalink: string;
 }
 
-const INSTAGRAM_API_KEY = process.env.INSTAGRAM_API_KEY;
+
 
 const InstagramFeed = () => {
   const [instagramMedia, setInstagramMedia] = useState<MediaItem[]>([]);
 
   useEffect(() => {
     const fetchInstagramMedia = async () => {
-      const accessToken = INSTAGRAM_API_KEY; 
+      const accessToken = instagramApiKey; 
       const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
       const data = await response.json();
       setInstagramMedia(data.data.slice(-5));
