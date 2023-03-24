@@ -19,11 +19,18 @@ const InstagramFeed = () => {
 
   useEffect(() => {
     const fetchInstagramMedia = async () => {
-      const accessToken = instagramApiKey; 
-      const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
-      const data = await response.json();
-      setInstagramMedia(data.data.slice(-5));
-    };
+  const accessToken = instagramApiKey;
+  const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
+  
+  if (!response.ok) {
+    const text = await response.text();
+    console.error('Error fetching Instagram media:', text);
+    return;
+  }
+
+  const data = await response.json();
+  setInstagramMedia(data.data.slice(-5));
+};
 
     fetchInstagramMedia();
   }, []);
