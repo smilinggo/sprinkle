@@ -1,12 +1,14 @@
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import InstagramFeed from "../components/InstagramFeed";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 import { AppProps } from "next/app";
-import getConfig from 'next/config';
+import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
 const RECAPTCHA_SITE_KEY = publicRuntimeConfig.RECAPTCHA_SITE_KEY;
+const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
+console.log("Instagram API Key-Main:", instagramApiKey);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
