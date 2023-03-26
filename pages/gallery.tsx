@@ -5,7 +5,8 @@ import getConfig from 'next/config';
 const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
 console.log("Instagram API Key:", instagramApiKey);
 
-console.log("Environment Variables:", process.env);
+console.log("Instagram API Key:", process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY);
+
 
 
 
