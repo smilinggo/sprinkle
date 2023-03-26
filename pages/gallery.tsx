@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
-const instagramApiKey = publicRuntimeConfig.INSTAGRAM_API_KEY;
-console.log('Instagram API Key:', instagramApiKey);
+const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
+
+
 
 
 interface MediaItem {
