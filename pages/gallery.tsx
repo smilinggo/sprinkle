@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import getConfig from 'next/config';
 
 
-
+const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
 
 
 interface MediaItem {
@@ -20,7 +19,6 @@ const Gallery = () => {
 
   useEffect(() => {
     const fetchInstagramMedia = async () => {
-      const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
       const accessToken = instagramApiKey
       const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
       const data = await response.json();

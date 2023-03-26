@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import getConfig from 'next/config';
 
 const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
 
