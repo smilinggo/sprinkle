@@ -78,10 +78,10 @@ const Navbar = () => {
                     Gallery
                   </a>
                 </Link>
-                <Link href="/testimonials">
+                <Link href="/tastemonials">
                   <a
                     className={`${
-                      router.pathname === '/testimonials'
+                      router.pathname === '/tastemonials'
                         ? 'text-gray-900'
                         : 'text-gray-300 hover:text-white'
                     } px-3 py-2 rounded-md text-sm font-medium`}
@@ -200,10 +200,10 @@ const Navbar = () => {
           Gallery
         </a>
       </Link>
-      <Link href="/testimonials">
+      <Link href="/tastemonials">
         <a
           className={`${
-            router.pathname === '/testimonials'
+            router.pathname === '/tastemonials'
               ? 'text-white'
               : 'text-gray-300 hover:text-white'
           } block px-3 py-2 rounded-md text-base font-medium} > TASTEmonials </a> </Link> <Link href="/order"> <a className={${
