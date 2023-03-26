@@ -3,12 +3,9 @@ import InstagramFeed from "../components/InstagramFeed";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 import { AppProps } from "next/app";
-import getConfig from "next/config";
 
-const { publicRuntimeConfig } = getConfig();
-const RECAPTCHA_SITE_KEY = publicRuntimeConfig.RECAPTCHA_SITE_KEY;
-const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
-console.log("Instagram API Key-Main:", instagramApiKey);
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
