@@ -29,8 +29,8 @@ const Order = () => {
             </h1>
             <p className="mb-4">
               Please include flavors, basic design, date and number of servings.
-              Once we receive your message we will be in contact within 24
-              hours.
+              Once we receive your message we will be in contact within 2
+              business days.
             </p>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
