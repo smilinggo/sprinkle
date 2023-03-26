@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import getConfig from 'next/config';
 
-const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
-if (!instagramApiKey) {
-  console.error("Instagram API key is not defined");
-}
+
 
 
 
@@ -19,6 +16,11 @@ interface MediaItem {
 
 const Gallery = () => {
   const [instagramMedia, setInstagramMedia] = useState<MediaItem[]>([]);
+
+  const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
+  if (!instagramApiKey) {
+    console.error("Instagram API key is not defined");
+  }
 
   useEffect(() => {
     const fetchInstagramMedia = async () => {
