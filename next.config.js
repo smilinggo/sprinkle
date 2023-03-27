@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   publicRuntimeConfig: {
     RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-    INSTAGRAM_API_KEY: process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY,
+    NEXT_PUBLIC_INSTAGRAM_API_KEY: process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY,
   },
 };
 
