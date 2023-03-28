@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
 
-const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
 
 interface MediaItem {
   id: string;
@@ -47,7 +46,7 @@ const Gallery = ({ instagramMedia }: { instagramMedia: MediaItem[] }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const accessToken = instagramApiKey;
+  const accessToken = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
   const response = await fetch(
     `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`
   );
