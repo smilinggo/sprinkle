@@ -47,6 +47,17 @@ const Gallery = ({ instagramMedia }: { instagramMedia: MediaItem[] }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const accessToken = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
+
+  if (!accessToken) {
+    console.error("Access token is undefined");
+    return {
+      props: {
+        instagramMedia: [],
+      },
+      revalidate: 3600,
+    };
+  }
+
   const response = await fetch(
     `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`
   );
@@ -57,7 +68,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       instagramMedia,
     },
-    revalidate: 3600, // Optional: Update the data every hour (3600 seconds)
+    revalidate: 3600,
   };
 };
 
