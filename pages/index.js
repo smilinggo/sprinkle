@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Script from 'next/script'
 
 
 const Home = () => {
@@ -7,11 +8,11 @@ const Home = () => {
     <>
       <Head>
         <title>My Bakery - Home</title>
-        <script
+        <Script
           src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"
           async
           defer
-        ></script>
+        ></Script>
       </Head>
       <main>
         <section
