@@ -1,19 +1,38 @@
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import InstagramFeed from "../components/InstagramFeed";
 import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
 import "../styles/globals.css";
 import { AppProps } from "next/app";
 
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-console.log(RECAPTCHA_SITE_KEY)
-
+const INSTAGRAM_API_KEY = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [instagramMedia, setInstagramMedia] = useState([]);
+
+  useEffect(() => {
+    const fetchInstagramMedia = async () => {
+      const response = await fetch(
+        `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${INSTAGRAM_API_KEY}`
+      );
+
+      if (!response.ok) {
+        console.error("Error fetching Instagram media");
+        return;
+      }
+
+      const data = await response.json();
+      setInstagramMedia(data.data);
+    };
+
+    fetchInstagramMedia();
+  }, []);
+
   return (
     <>
       <GoogleReCaptchaProvider
-        reCaptchaKey={RECAPTCHA_SITE_KEY}
+        reCaptchaKey={INSTAGRAM_API_KEY}
         scriptProps={{
           async: false,
           defer: false,
@@ -23,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <Navbar />
         <Component {...pageProps} />
-        <InstagramFeed />
+        <InstagramFeed instagramMedia={instagramMedia} />
       </GoogleReCaptchaProvider>
     </>
   );
