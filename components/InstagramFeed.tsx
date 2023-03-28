@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const instagramApiKey = process.env.NEXT_PUBLIC_INSTAGRAM_API_KEY;
+console.log('before effect', instagramApiKey)
 
 
 interface MediaItem {
@@ -17,6 +18,7 @@ const InstagramFeed = () => {
   const [instagramMedia, setInstagramMedia] = useState<MediaItem[]>([]);
 
   useEffect(() => {
+    console.log("after effect", instagramApiKey);
     const fetchInstagramMedia = async () => {
   const accessToken = instagramApiKey;
   const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);

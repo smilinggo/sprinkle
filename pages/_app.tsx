@@ -5,6 +5,8 @@ import "../styles/globals.css";
 import { AppProps } from "next/app";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+console.log(RECAPTCHA_SITE_KEY)
+
 
 
 function MyApp({ Component, pageProps }: AppProps) {

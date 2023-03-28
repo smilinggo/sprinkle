@@ -19,6 +19,7 @@ const Gallery = () => {
 
   useEffect(() => {
     const fetchInstagramMedia = async () => {
+      console.log(instagramApiKey)
       const accessToken = instagramApiKey
       const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`);
       const data = await response.json();
